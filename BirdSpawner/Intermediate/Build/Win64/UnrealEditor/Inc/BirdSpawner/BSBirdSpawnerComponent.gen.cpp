@@ -353,9 +353,14 @@ template<> BIRDSPAWNER_API UScriptStruct* StaticStruct<FBSZoneSpecifier>()
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_BirdKillDistance;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_LandscapeCollisionChannel_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnableLandscapeDetection_MetaData[];
 #endif
-		static const UECodeGen_Private::FBytePropertyParams NewProp_LandscapeCollisionChannel;
+		static void NewProp_EnableLandscapeDetection_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_EnableLandscapeDetection;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LandscapeObjectType_MetaData[];
+#endif
+		static const UECodeGen_Private::FBytePropertyParams NewProp_LandscapeObjectType;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BirdArray_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BirdArray_MetaData[];
@@ -410,13 +415,26 @@ template<> BIRDSPAWNER_API UScriptStruct* StaticStruct<FBSZoneSpecifier>()
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_BirdKillDistance = { "BirdKillDistance", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UBSBirdSpawnerComponent, BirdKillDistance), METADATA_PARAMS(Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_BirdKillDistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_BirdKillDistance_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeCollisionChannel_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_EnableLandscapeDetection_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Bird Spawner Data" },
 		{ "ModuleRelativePath", "Public/BSBirdSpawnerComponent.h" },
 	};
 #endif
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeCollisionChannel = { "LandscapeCollisionChannel", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UBSBirdSpawnerComponent, LandscapeCollisionChannel), Z_Construct_UEnum_Engine_ECollisionChannel, METADATA_PARAMS(Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeCollisionChannel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeCollisionChannel_MetaData)) }; // 727872708
+	void Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_EnableLandscapeDetection_SetBit(void* Obj)
+	{
+		((UBSBirdSpawnerComponent*)Obj)->EnableLandscapeDetection = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_EnableLandscapeDetection = { "EnableLandscapeDetection", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UBSBirdSpawnerComponent), &Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_EnableLandscapeDetection_SetBit, METADATA_PARAMS(Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_EnableLandscapeDetection_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_EnableLandscapeDetection_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeObjectType_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Bird Spawner Data" },
+		{ "EditCondition", "EnableLandscapeDetection" },
+		{ "ModuleRelativePath", "Public/BSBirdSpawnerComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeObjectType = { "LandscapeObjectType", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UBSBirdSpawnerComponent, LandscapeObjectType), Z_Construct_UEnum_Engine_ECollisionChannel, METADATA_PARAMS(Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeObjectType_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeObjectType_MetaData)) }; // 727872708
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_BirdArray_Inner = { "BirdArray", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_ABSBirdActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_BirdArray_MetaData[] = {
@@ -438,7 +456,8 @@ template<> BIRDSPAWNER_API UScriptStruct* StaticStruct<FBSZoneSpecifier>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_ActiveZoneArray,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_SpawnInterval,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_BirdKillDistance,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeCollisionChannel,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_EnableLandscapeDetection,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_LandscapeObjectType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_BirdArray_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_BirdArray,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBSBirdSpawnerComponent_Statics::NewProp_Zones_Inner,
@@ -485,9 +504,9 @@ template<> BIRDSPAWNER_API UScriptStruct* StaticStruct<FBSZoneSpecifier>()
 		{ FBSZoneSpecifier::StaticStruct, Z_Construct_UScriptStruct_FBSZoneSpecifier_Statics::NewStructOps, TEXT("BSZoneSpecifier"), &Z_Registration_Info_UScriptStruct_BSZoneSpecifier, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FBSZoneSpecifier), 3826951595U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DemoForest_Plugins_BirdSpawner_Source_BirdSpawner_Public_BSBirdSpawnerComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBSBirdSpawnerComponent, UBSBirdSpawnerComponent::StaticClass, TEXT("UBSBirdSpawnerComponent"), &Z_Registration_Info_UClass_UBSBirdSpawnerComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBSBirdSpawnerComponent), 2565370559U) },
+		{ Z_Construct_UClass_UBSBirdSpawnerComponent, UBSBirdSpawnerComponent::StaticClass, TEXT("UBSBirdSpawnerComponent"), &Z_Registration_Info_UClass_UBSBirdSpawnerComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBSBirdSpawnerComponent), 2513274712U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DemoForest_Plugins_BirdSpawner_Source_BirdSpawner_Public_BSBirdSpawnerComponent_h_898330944(TEXT("/Script/BirdSpawner"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DemoForest_Plugins_BirdSpawner_Source_BirdSpawner_Public_BSBirdSpawnerComponent_h_4288421057(TEXT("/Script/BirdSpawner"),
 		Z_CompiledInDeferFile_FID_DemoForest_Plugins_BirdSpawner_Source_BirdSpawner_Public_BSBirdSpawnerComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DemoForest_Plugins_BirdSpawner_Source_BirdSpawner_Public_BSBirdSpawnerComponent_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_DemoForest_Plugins_BirdSpawner_Source_BirdSpawner_Public_BSBirdSpawnerComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DemoForest_Plugins_BirdSpawner_Source_BirdSpawner_Public_BSBirdSpawnerComponent_h_Statics::ScriptStructInfo),
 		nullptr, 0);
