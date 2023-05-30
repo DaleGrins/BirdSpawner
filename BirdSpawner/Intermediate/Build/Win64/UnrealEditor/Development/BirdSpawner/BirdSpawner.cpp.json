@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\dale grinsell\\documents\\unreal projects\\demoforest\\plugins\\birdspawner\\source\\birdspawner\\private\\birdspawner.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\dale grinsell\\documents\\unreal projects\\demoforest\\intermediate\\build\\win64\\demoforesteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\dale grinsell\\documents\\unreal projects\\demoforest\\plugins\\birdspawner\\intermediate\\build\\win64\\unrealeditor\\development\\birdspawner\\definitions.birdspawner.h",
+            "c:\\users\\dale grinsell\\documents\\unreal projects\\demoforest\\plugins\\birdspawner\\source\\birdspawner\\public\\birdspawner.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

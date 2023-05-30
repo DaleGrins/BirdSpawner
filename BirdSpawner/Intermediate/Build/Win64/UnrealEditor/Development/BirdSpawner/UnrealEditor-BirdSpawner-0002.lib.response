@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-BirdSpawner-0002.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Dale Grinsell\Documents\Unreal Projects\DemoForest\Intermediate\Build\Win64\DemoForestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\Dale Grinsell\Documents\Unreal Projects\DemoForest\Plugins\BirdSpawner\Intermediate\Build\Win64\UnrealEditor\Development\BirdSpawner\Module.BirdSpawner.cpp.obj"
+"C:\Users\Dale Grinsell\Documents\Unreal Projects\DemoForest\Plugins\BirdSpawner\Intermediate\Build\Win64\UnrealEditor\Development\BirdSpawner\Module.BirdSpawner.gen.cpp.obj"
+"C:\Users\Dale Grinsell\Documents\Unreal Projects\DemoForest\Plugins\BirdSpawner\Intermediate\Build\Win64\UnrealEditor\Development\BirdSpawner\Default.rc2.res"
+/OUT:"C:\Users\Dale Grinsell\Documents\Unreal Projects\DemoForest\Plugins\BirdSpawner\Intermediate\Build\Win64\UnrealEditor\Development\BirdSpawner\UnrealEditor-BirdSpawner-0002.lib"
