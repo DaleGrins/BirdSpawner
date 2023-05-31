@@ -91,17 +91,20 @@ void UBSBirdSpawnerComponent::TickComponent(float DeltaTime, ELevelTick TickType
 		{
 			if (ZoneSearch.Zone == ActiveZoneArray[ActiveZoneArray.Num() - 1])
 			{
-				//If a matching zone is found, call PopulateBirdArray passing in the relevant bird table
-				if(ZoneSearch.BirdDataTable)
+				if(ZoneSearch.bZoneHasBirds)
 				{
-					PopulateBirdArray(ZoneSearch.BirdDataTable, ZoneSearch.MaxBirdCount, ZoneSearch.bSingleBirdInstance);
-				}
-				else
-				{
-					//If the zone should have birds but there is no bird table, warning.
-					if (ZoneSearch.bZoneHasBirds)
+					//If a matching zone is found, call PopulateBirdArray passing in the relevant bird table
+					if(ZoneSearch.BirdDataTable)
 					{
-						UE_LOG(LogTemp, Warning, TEXT("Bird Spawner: There is no bird data table set for the current zone"))
+						PopulateBirdArray(ZoneSearch.BirdDataTable, ZoneSearch.MaxBirdCount, ZoneSearch.bSingleBirdInstance);
+					}
+					else
+					{
+						//If the zone should have birds but there is no bird table, warning.
+						if (!ZoneSearch.BirdDataTable)
+						{
+							UE_LOG(LogTemp, Warning, TEXT("Bird Spawner: There is no bird data table set for the current zone"))
+						}
 					}
 				}
 				bIsMatchingZoneToActiveZoneFound = true;
