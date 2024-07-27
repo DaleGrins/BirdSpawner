@@ -1,0 +1,17 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.BirdSpawner.cpp.obj": [
+			"BirdSpawner.init.gen.cpp.obj",
+			"BSAmbientZone.gen.cpp.obj",
+			"BSBirdActor.gen.cpp.obj",
+			"BSBirdSpawnerComponent.gen.cpp.obj",
+			"BSWorldAmbienceTracker.gen.cpp.obj",
+			"BirdSpawner.cpp.obj",
+			"BSAmbientZone.cpp.obj",
+			"BSBirdActor.cpp.obj",
+			"BSBirdSpawnerComponent.cpp.obj",
+			"BSWorldAmbienceTracker.cpp.obj"
+		]
+	}
+}
